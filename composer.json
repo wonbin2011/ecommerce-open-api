@@ -17,7 +17,7 @@
 		"fideloper/proxy": "~3.3",
 		"ibrand/backend": "~3.0",
 		"ibrand/laravel-active": "~2.0",
-		"ibrand/laravel-miniprogram-poster": "^1.1",
+		"ibrand/laravel-miniprogram-poster": "~2.0",
 		"ibrand/laravel-shopping-cart": "^1.3",
 		"ibrand/laravel-sms": "~1.0",
 		"ibrand/laravel-ueditor": "^1.0",
@@ -41,6 +41,7 @@
 		"prettus/l5-repository": "^2.1",
 		"qiniu/php-sdk": "^7.0",
 		"simplesoftwareio/simple-qrcode": "~1",
+		"verumconsilium/laravel-browsershot": "^1.1",
 		"vinkla/hashids": "~3.3.0",
 		"wikimedia/composer-merge-plugin": "^1.4"
 	},

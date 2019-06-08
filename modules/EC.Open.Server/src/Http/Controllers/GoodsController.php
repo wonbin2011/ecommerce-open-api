@@ -374,7 +374,7 @@ class GoodsController extends Controller
 
         $url = route('goods.share.view', compact('id', 'nick_name', 'avatar', 'filename'));
 
-        $result = MiniProgramShareImg::generateShareImage($url, 'share_goods');
+        $result = MiniProgramShareImg::generateShareImage($url);
 
         return $this->success($result['url']);
     }

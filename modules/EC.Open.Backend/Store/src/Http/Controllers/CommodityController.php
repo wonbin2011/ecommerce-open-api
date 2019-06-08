@@ -224,6 +224,8 @@ class CommodityController extends Controller
 
         $input = $request->except('_token', 'file', 'specJson', 'upload_image');
 
+        return $this->ajaxJson(false, [], 404, json_encode($input));
+
         $data = $this->goodsService->handleGoodsData($input);   //将商品数据进行分组处理
 
         if (isset($data['status']) AND !$data['status']) {

@@ -84,8 +84,8 @@
         </script>
     </div>
     <div class="app-actions">
-        <a data-id="5" data-action="next" class="btn btn-success app-action-prev">«上一步</a>
-        <a data-id="7" data-action="next" class="btn btn-success app-action">下一步»</a>
+        <a data-id="4" data-action="next" class="btn btn-success app-action-prev">«上一步</a>
+        <a data-id="6" data-action="next" class="btn btn-success app-action">下一步»</a>
         <input type="submit" class="btn btn-success app-action-save" data-toggle="form-submit" data-target="#base-form"
                value="保存">
     </div>

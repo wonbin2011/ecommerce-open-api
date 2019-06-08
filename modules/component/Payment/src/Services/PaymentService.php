@@ -17,6 +17,7 @@ use iBrand\Component\Order\Repositories\OrderRepository;
 use iBrand\Component\Pay\Contracts\PayNotifyContract;
 use iBrand\Component\Pay\Models\Charge;
 use iBrand\Component\Payment\Models\Payment;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Created by PhpStorm.
@@ -35,6 +36,9 @@ class PaymentService implements PayNotifyContract
 
 	public function success(Charge $charge)
 	{
+	    Log::error(json_encode($charge));
+//	    Log::error(json_encode($charge['time_paid']));
+//	    Log::error($charge['time_paid']->date);
 		$order = $this->orderRepository->getOrderByNo($charge->order_no);
 
 		$need_pay = $order->getNeedPayAmount();
@@ -50,7 +54,7 @@ class PaymentService implements PayNotifyContract
 		if ($pay_state >= 0) {
 			$order = $this->orderRepository->getOrderByNo($charge->order_no);
 
-			$payment = new Payment(['order_id' => $order->id, 'channel' => $charge['channel'], 'amount' => $charge['amount'], 'status' => Payment::STATUS_COMPLETED, 'channel_no' => $charge['transaction_no'], 'paid_at' => Carbon::createFromTimestamp($charge['time_paid']), 'details' => isset($charge['details']) ? $charge['details'] : '',]);
+			$payment = new Payment(['order_id' => $order->id, 'channel' => $charge['channel'], 'amount' => $charge['amount'], 'status' => Payment::STATUS_COMPLETED, 'channel_no' => $charge['transaction_no'], 'paid_at' => $charge['time_paid']->date, 'details' => isset($charge['details']) ? $charge['details'] : '',]);
 
 			$order->payments()->save($payment);
 
